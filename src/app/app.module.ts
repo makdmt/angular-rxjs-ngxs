@@ -5,14 +5,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesState } from './heroes/store/heroes.state';
+import { HeroesComponent } from './heroes/components/heroes/heroes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgxsModule.forRoot([HeroesState])
   ],
   providers: [],
