@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeroesState } from './heroes/store/heroes.state';
 import { HeroesComponent } from './heroes/components/heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { UserState } from './auth/store/user.state';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([HeroesState])
+    NgxsModule.forRoot([UserState, HeroesState],{developmentMode: true}),
+    NgxsReduxDevtoolsPluginModule.forRoot({disabled: false})
   ],
   providers: [],
   bootstrap: [AppComponent]
