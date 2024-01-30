@@ -1,0 +1,10 @@
+<ng-container *ngIf="{selectedColor: selectedColor$ | async} as tmplVars">
+<h2>Chose the color</h2>
+<form>
+  <label *ngFor="let color of colors">
+    <input type="radio" name="colors" [value]="color" [formControl]="colorsForm.controls.selectedColor" [checked]="tmplVars.selectedColor === color" >
+    {{color}}
+  </label>
+</form>
+<p [highlightColor]="tmplVars.selectedColor">Try it!</p>
+</ng-container>
