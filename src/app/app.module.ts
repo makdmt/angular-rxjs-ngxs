@@ -13,6 +13,7 @@ import { RadioHighlightComponent } from './shared/components/radio-highlight/rad
 import { HighlightDirective } from './shared/directives/highlight/highlight.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedState } from './shared/store/shared.state';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { SharedState } from './shared/store/shared.state';
     HighlightDirective
   ],
   imports: [
+    NgxsModule.forRoot([UserState, HeroesState, SharedState],{developmentMode: true}),
+    NgxsReduxDevtoolsPluginModule.forRoot({disabled: false}),
+    NgxsStoragePluginModule.forRoot({key: [SharedState]}),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([UserState, HeroesState, SharedState],{developmentMode: true}),
-    NgxsReduxDevtoolsPluginModule.forRoot({disabled: false}),
     ReactiveFormsModule
   ],
   providers: [],
