@@ -12,6 +12,7 @@ import { UserState } from './auth/store/user.state';
 import { RadioHighlightComponent } from './shared/components/radio-highlight/radio-highlight.component';
 import { HighlightDirective } from './shared/directives/highlight/highlight.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedState } from './shared/store/shared.state';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([UserState, HeroesState],{developmentMode: true}),
+    NgxsModule.forRoot([UserState, HeroesState, SharedState],{developmentMode: true}),
     NgxsReduxDevtoolsPluginModule.forRoot({disabled: false}),
     ReactiveFormsModule
   ],
